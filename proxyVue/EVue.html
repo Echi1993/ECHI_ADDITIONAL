@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+        />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>proxyVue</title>
+        <style>
+            #app {
+                margin: 100px auto 0 auto;
+                width: 300px;
+            }
+
+            #btn {
+                margin: 10px auto;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="app">
+            <input type="text" v-model="msg" />
+            <button
+                id="btn"
+                type="button"
+                v-on:click="reset">重置</button>
+                <br/>
+            <span>您输入的是：</span> {{msg}}
+        </div>
+    </body>
+
+    <script src="./EVue.js"></script>
+    <script>
+        let EV = new EVue({
+            el: "#app",
+            data: {
+                msg: "hello world !!!"
+            },
+            methods: {
+                reset: function() {
+                    this.msg = "hello world !!!"
+                }
+            }
+        });
+    </script>
+</html>
