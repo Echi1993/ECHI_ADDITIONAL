@@ -3,4 +3,4 @@
 
 ## 目录
 
-### proxy[vue ES6中proxy语法尝鲜及实现Vue双向绑定功能]
+* proxy[vue ES6中proxy语法尝鲜及实现Vue双向绑定功能]
