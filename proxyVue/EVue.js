@@ -28,12 +28,12 @@ function EVue(options) {
         }
     }
     // 将data属性代理到vm对象中
-    Object.keys(data).forEach((key) => {
+    Object.keys(data).forEach(key => {
         proxy(vm, key);
     });
     // 将methods属性添加到vm对象中
-    for(let method in methods) {
-        if(!vm.hasOwnProperty(method)) {
+    for (let method in methods) {
+        if (!vm.hasOwnProperty(method)) {
             vm[method] = methods[method];
         }
     }
@@ -42,25 +42,30 @@ function EVue(options) {
     new Compile(options.el, vm);
 }
 
+// 定义对象的属性
+const sharedPropertyDefinition = {
+    enumerable: true,
+    configurable: true,
+    get: () => {},
+    set: () => {}
+};
+
 /**
  * @description 将data上的属性代理到EVue上
  * @author Echi
  * @date 2019-05-21
  * @param {EVue} vm
  * @param {key} key
- * @returns 
+ * @returns
  */
 function proxy(vm, key) {
-    Object.defineProperty(vm, key, {
-        enumerable: false,
-        configurable: true,
-        get() {
-            return vm.$data[key];
-        },
-        set(value) {
-            vm.$data[key] = value;
-        }
-    });
+    sharedPropertyDefinition.get = function proxyGetter() {
+        return vm.$data[key];
+    };
+    sharedPropertyDefinition.set = function proxySetter(val) {
+        vm.$data[key] = val;
+    };
+    Object.defineProperty(vm, key, sharedPropertyDefinition);
 }
 
 /**
@@ -91,6 +96,7 @@ function observe(data, vm) {
     };
     vm.$data = new Proxy(data, proxyHandler);
 }
+
 /**
  * @description 观察者方法
  * @author Echi
@@ -146,6 +152,7 @@ Dep.prototype = {
         });
     }
 };
+
 /**
  * @description 模板编译方法
  * @author Echi
@@ -154,23 +161,23 @@ Dep.prototype = {
  * @param {EVue} vm
  */
 function Compile(el, vm) {
-    this.vm = vm;
+    this.vm = vm;  // 缓存EVue对象
     this.el = document.querySelector(el);
-    this.fragment = null;
     this.init();
 }
 
 Compile.prototype = {
     init() {
         if (this.el) {
-            this.fragment = this.nodeToFragment(this.el);
-            this.compileElement(this.fragment);
-            this.el.appendChild(this.fragment);
+            let fragment = this.nodeToFragment(this.el);
+            this.compileElement(fragment);
+            this.el.appendChild(fragment);
         } else {
             console.log("Dom元素不存在");
         }
     },
     nodeToFragment(el) {
+        // 获取文档碎片
         let fragment = document.createDocumentFragment();
         let child = el.firstChild;
         while (child) {
@@ -183,13 +190,14 @@ Compile.prototype = {
     compileElement(el) {
         let childNodes = el.childNodes;
         [].slice.call(childNodes).forEach(node => {
-            let reg = /\{\{(.*)\}\}/; // 匹配{{ ... }}
+            let reg = /\{\{(.*)\}\}/; // 匹配{{ }}
             let text = node.textContent;
-            if (this.isElementNode(node)) {
+            if (this.isElementNode(node)) {  // 判断是否是dom节点
                 this.compile(node);
-            } else if (this.isTextNode(node) && reg.test(text)) {
+            } else if (this.isTextNode(node) && reg.test(text)) {  // 文本节点
                 this.compileText(node, reg.exec(text)[1]);
             }
+            // 递归子元素
             if (node.childNodes && node.childNodes.length) {
                 this.compileElement(node);
             }
@@ -214,6 +222,9 @@ Compile.prototype = {
             }
         });
     },
+    /**
+     * 编译文本属性
+     */
     compileText(node, exp) {
         let initText = this.vm[exp];
         this.updateText(node, initText);
@@ -221,13 +232,17 @@ Compile.prototype = {
             this.updateText(node, value);
         });
     },
+    /**
+     * 编译事件属性
+     */
     compileEvent(node, vm, exp, dir) {
         let [, eventType] = dir.split(":");
-        let cb = vm.$methods && vm.$methods[exp];
+        let cb = vm && vm[exp];
         if (eventType && cb) {
             node.addEventListener(eventType, cb.bind(vm), false);
         }
     },
+    // 编译v-model属性
     compileModel(node, vm, exp, dir) {
         let val = vm[exp];
         this.modelUpdater(node, val);
@@ -243,21 +258,27 @@ Compile.prototype = {
             val = newValue;
         });
     },
+    // 更新文本节点
     updateText(node, value) {
         node.textContent = typeof value == "undefined" ? "" : value;
     },
+    // 更新输入框文本
     modelUpdater(node, value, oldValue) {
         node.value = typeof value == "undefined" ? "" : value;
     },
+    // 判断是否是指令
     isDirective(attr) {
         return attr.indexOf("v-") == 0;
     },
+    // 判断是否是事件指令
     isEventDirective(dir) {
         return dir.indexOf("on:") === 0;
     },
+    // 判断是否是dom元素
     isElementNode(node) {
         return node.nodeType == 1;
     },
+    // 判断是否文本节点
     isTextNode(node) {
         return node.nodeType == 3;
     }
