@@ -3,9 +3,9 @@
 
 ## 目录
 
-* proxy[vue ES6中proxy语法尝鲜及实现Vue双向绑定功能]
+* proxyVue [vue ES6中proxy语法尝鲜及实现Vue双向绑定功能]
 
-## 代码工具
+## 代码工具 utils
 
 * dom [实现一些基于dom的操作和事件绑定方法]
 
