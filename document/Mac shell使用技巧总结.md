@@ -4,55 +4,55 @@
 
 - 常用目录
 
-/Systme/Library/Extensions        // 驱动所在目录
-/User/XXX/Desktop                 // 桌面目录
+      /Systme/Library/Extensions        // 驱动所在目录
+      /User/XXX/Desktop                 // 桌面目录
 
 - 资源库
 
-chflags nohidden ~/Library/        // 显示资源库
-chflags hidden ~/Library/          // 隐藏资源库
+      chflags nohidden ~/Library/        // 显示资源库
+      chflags hidden ~/Library/          // 隐藏资源库
 
 - 目录
 
-命令名 | 功能描述 | 使用举例
-- | :-: | :-:
-mkdir | 创建一个目录 | mkdir XXX
-rmdir | 删除一个目录 | rmdir XXX
-mvdir | 移动或重命名一个目录 | mvdir XXX XXX
-cd | 进入目录 | cd XXX
-cd .. | 回到上一目录 | cd ..
-cd ~ | 回到用户根目录 | cd ~
-pwd | 显示当前目录的路径名 | pwd
-ls | 显示当前目录的内容 | ls -al
-open | 打开当前目录 | open .
+| 命令名 | 功能描述 | 使用举例
+| - | - | -
+| mkdir | 创建一个目录 | mkdir XXX
+| rmdir | 删除一个目录 | rmdir XXX
+| mvdir | 移动或重命名一个目录 | mvdir XXX XXX
+| cd | 进入目录 | cd XXX
+| cd .. | 回到上一目录 | cd ..
+| cd ~ | 回到用户根目录 | cd ~
+| pwd | 显示当前目录的路径名 | pwd
+| ls | 显示当前目录的内容 | ls -al
+| open | 打开当前目录 | open .
 
 - 文件操作
 
-命令名 | 功能描述 | 使用举例
-- | :-: | :-:
-cat  | 显示或连接文件  | cat XXX
-od  | 显示非文本文件的内容  | od -c XXX
-cp  | 复制文件或目录  | cp XXX XXX
-rm  | 删除文件或目录  | rm XXX
-rm -rf  | 强制删除文件或目录(慎用)  | rm -rf XXX
-mv  | 移动文件到新路径  | mv XXX XXX
-find  | 使用匹配表达式查找文件  | find . -name "*.c" -print
-file  | 显示文件类型  | file XXX
+| 命令名 | 功能描述 | 使用举例
+| - | - | -
+| cat  | 显示或连接文件  | cat XXX
+| od  | 显示非文本文件的内容  | od -c XXX
+| cp  | 复制文件或目录  | cp XXX XXX
+| rm  | 删除文件或目录  | rm XXX
+| rm -rf  | 强制删除文件或目录(慎用)  | rm -rf XXX
+| mv  | 移动文件到新路径  | mv XXX XXX
+| find  | 使用匹配表达式查找文件  | find . -name "*.c" -print
+| file  | 显示文件类型  | file XXX
 
 - 选择操作
 
-命令名 | 功能描述 | 使用举例
-- | :-: | :-:
-head  | 显示文件的最初几行  | head -20 XXX
-tail  | 显示文件的最后几行  | tail -15 XXX
-cut  | 显示文件每行中的某些域  | cut -f1,7 -d: /etc/passwd
-colrm  | 从标准输入中删除若干列  | colrm 8 20 XXX
-diff  | 比较并显示两个文件的差异  | diff XXX XXX
-sort  | 排序或归并文件  | sort -d -f -u XXX
-uniq  | 去掉文件中的重复行  | uniq XXX XXX
-comm  | 显示两有序文件的公共和非公共行  | comm XXX XXX
-wc  | 统计文件的字符数、词数和行数  | wc XXX
-nl  | 给文件加上行号  | nl XXX >XXX
+| 命令名 | 功能描述 | 使用举例
+| - | - | -
+| head  | 显示文件的最初几行  | head -20 XXX
+| tail  | 显示文件的最后几行  | tail -15 XXX
+| cut  | 显示文件每行中的某些域  | cut -f1,7 -d: /etc/passwd
+| colrm  | 从标准输入中删除若干列  | colrm 8 20 XXX
+| diff  | 比较并显示两个文件的差异  | diff XXX XXX
+| sort  | 排序或归并文件  | sort -d -f -u XXX
+| uniq  | 去掉文件中的重复行  | uniq XXX XXX
+| comm  | 显示两有序文件的公共和非公共行  | comm XXX XXX
+| wc  | 统计文件的字符数、词数和行数  | wc XXX
+| nl  | 给文件加上行号  | nl XXX >XXX
 
 - 文件编辑
 
@@ -70,18 +70,18 @@ nl  | 给文件加上行号  | nl XXX >XXX
 
 - 进程操作
 
-命令名 | 功能描述 | 使用举例
-- | - | -
-ps  | 显示进程当前状态  | ps u
-kill  | 终止进程  | kill -9 30142
+| 命令名 | 功能描述 | 使用举例
+| - | - | -
+| ps  | 显示进程当前状态  | ps u
+| kill  | 终止进程  | kill -9 30142
 
 - 时间操作
 
-命令名 | 功能描述 | 使用举例
-- | - | -
-date  | 显示系统的当前日期和时间  | date
-cal  | 显示日历  | cal 4 2016
-time  | 统计程序的执行时间  | time a.out
+| 命令名 | 功能描述 | 使用举例
+| - | - | -
+| date  | 显示系统的当前日期和时间  | date
+| cal  | 显示日历  | cal 4 2016
+| time  | 统计程序的执行时间  | time a.out
 
 - 启动与退出
 
@@ -139,17 +139,17 @@ time  | 统计程序的执行时间  | time a.out
 
 - 网络与通信操作
 
-命令名 | 功能描述 | 使用举例
-- | - | -
-telnet  | 远程登录  | telnet hpc.sp.net.edu.cn
-rlogin  | 远程登录  | rlogin hostname -l username
-rsh  | 在远程主机执行指定命令  | rsh f01n03 date
-ftp  | 在本地主机与远程主机之间传输文件  | ftp.sp.net.edu.cn
-rcp  | 在本地主机与远程主机之间复制文件  | rcp file1 host1:file2
-mail  | 阅读和发送电子邮件  | mail
-write  | 给另一用户发送报文  | write username pts/1
-mesg  | 允许或拒绝接收报文  | mesg n
-ping  | 给一个网络主机发送回应请求  | ping hpc.sp.net.edu.cn
+| 命令名 | 功能描述 | 使用举例
+| - | - | -
+| telnet  | 远程登录  | telnet hpc.sp.net.edu.cn
+| rlogin  | 远程登录  | rlogin hostname -l username
+| rsh  | 在远程主机执行指定命令  | rsh f01n03 date
+| ftp  | 在本地主机与远程主机之间传输文件  | ftp.sp.net.edu.cn
+| rcp  | 在本地主机与远程主机之间复制文件  | rcp file1 host1:file2
+| mail  | 阅读和发送电子邮件  | mail
+| write  | 给另一用户发送报文  | write username pts/1
+| mesg  | 允许或拒绝接收报文  | mesg n
+| ping  | 给一个网络主机发送回应请求  | ping hpc.sp.net.edu.cn
 
 - 检测某个主机是否运行HTTP服务或网络是否可用
 
@@ -180,20 +180,21 @@ ping  | 给一个网络主机发送回应请求  | ping hpc.sp.net.edu.cn
 
 - 其他命令
 
-命令名 | 功能描述 | 使用举例
-- | - | -
-uname  | 显示操作系统的有关信息  | uname -a
-clear  | 清除屏幕或窗口内容  | clear
-alias  | 给某个命令定义别名  | alias del=rm -i
-unalias  | 取消对某个别名的定义  | unalias del
-who  | 显示当前所有设置过的环境变量  | who
-whoami  | 显示当前正进行操作的用户名  | whoami
-tty  | 显示终端或伪终端的名称  | tty
-du  | 查询磁盘使用情况  | du -k subdir
-stty  | 显示或重置控制键定义  | stty -a
-df/tmp  | 显示文件系统的总空间和可用空间  | -
+| 命令名 | 功能描述 | 使用举例
+| - | - | -
+| uname  | 显示操作系统的有关信息  | uname -a
+| clear  | 清除屏幕或窗口内容  | clear
+| alias  | 给某个命令定义别名  | alias del=rm -i
+| unalias  | 取消对某个别名的定义  | unalias del
+| who  | 显示当前所有设置过的环境变量  | who
+| whoami  | 显示当前正进行操作的用户名  | whoami
+| tty  | 显示终端或伪终端的名称  | tty
+| du  | 查询磁盘使用情况  | du -k subdir
+| stty  | 显示或重置控制键定义  | stty -a
+| df/tmp  | 显示文件系统的总空间和可用空间  | -
 w  | 显示当前系统活动的总信息  | -
-5.查询操作
+
+## 查询操作
 
 - find命令
 
