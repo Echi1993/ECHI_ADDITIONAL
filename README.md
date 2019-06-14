@@ -17,3 +17,4 @@
 ## 文档
 
 * shell [Linux/Mac/Shell常用命令]
+* shell [Mac shell使用技巧总结]
