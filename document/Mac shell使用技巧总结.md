@@ -192,7 +192,7 @@
 | du  | 查询磁盘使用情况  | du -k subdir
 | stty  | 显示或重置控制键定义  | stty -a
 | df/tmp  | 显示文件系统的总空间和可用空间  | -
-w  | 显示当前系统活动的总信息  | -
+| w | 显示当前系统活动的总信息  | -
 
 ## 查询操作
 
@@ -220,4 +220,3 @@ w  | 显示当前系统活动的总信息  | -
       // 添加-onlyin参数搜索指定目录指定文件或文件字段
       mdfind -onlyin ~/company/ "请输入密码"
       mdfind -onlyin ~/company/ plist
-
