@@ -4,8 +4,6 @@
 
 ## 目录
 
-* proxyVue [vue ES6中proxy语法尝鲜及实现Vue双向绑定功能]
-
 ## 代码工具 utils
 
 * dom [实现一些基于dom的操作和事件绑定方法]
@@ -16,5 +14,13 @@
 
 ## 文档
 
-* shell [Linux/Mac/Shell常用命令]
-* shell [Mac shell使用技巧总结]
+* Linux/Mac/Shell常用命令
+* Mac shell使用技巧总结
+
+## react
+
+* React & Redux in TypeScript - 静态类型指南
+
+## vue
+
+* proxyVue [vue ES6中proxy语法尝鲜及实现Vue双向绑定功能]
