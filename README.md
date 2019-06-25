@@ -14,8 +14,8 @@
 
 ## 文档
 
-* Linux/Mac/Shell常用命令
-* Mac shell使用技巧总结
+* Linux.Mac.Shell常用命令
+* Mac.shell使用技巧总结
 
 ## react
 
@@ -23,4 +23,4 @@
 
 ## vue
 
-* proxyVue [vue ES6中proxy语法尝鲜及实现Vue双向绑定功能]
+* proxy [vue ES6中proxy语法尝鲜及实现Vue双向绑定功能]
